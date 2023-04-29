@@ -8,5 +8,12 @@ export const theme: DefaultTheme = {
     green: '#94D7A2',
     red: '#F8BCBC',
     gray: '#F5F7FB',
+    // 10 12 16 32
+  },
+  fontSize: {
+    xxs10: 10,
+    xs12: 12,
+    sm16: 16,
+    md32: 32,
   },
 }

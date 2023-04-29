@@ -7,7 +7,13 @@ declare module 'styled-components' {
       green: string
       red: string
       gray: string
-    }
+    },
+    fontSize: {
+      xxs10: number
+      xs12: number
+      sm16: number
+      md32: number
+    },
   }
 }
 
