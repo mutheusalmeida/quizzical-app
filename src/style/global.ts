@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
    /*
@@ -26,7 +26,11 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-family: 'Inter', sans-serif;
-    color: #4F4F4F;
+
+    ${({ theme }) => css`
+      color: ${theme.colors.blue};
+      background-color: ${theme.colors.gray};
+    `}
   }
 
   img, picture, video, canvas, svg {
