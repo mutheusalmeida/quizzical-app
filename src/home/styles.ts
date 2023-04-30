@@ -1,34 +1,11 @@
+import { Button } from '@/style'
 import styled, { css } from 'styled-components'
 
 export const HomeWrapper = styled.div`
   display: flex;
-  min-height: 100%;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-`
-
-export const Container = styled.div`
-  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.625em;
-  position: relative;
-
-  > svg {
-    position: absolute;
-    max-width: max-content;
-  }
-
-  > svg:nth-child(1) {
-    top: -374px;
-    right: -316px;
-  }
-
-  > svg:nth-child(2) {
-    bottom: -308px;
-    right: 254px;
-  }
 `
 
 export const Title = styled.h1`
@@ -50,9 +27,6 @@ export const Desc = styled.p`
   `}
 `
 
-export const ButtonWrapper = styled.div`
+export const StartButton = styled(Button)`
   margin-top: 1.8125em;
-  display: flex;
-  justify-content: center;
-  width: 100%;
 `

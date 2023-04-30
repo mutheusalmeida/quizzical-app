@@ -1,25 +1,22 @@
-import { Button } from '@/style'
-import { ReactComponent as BlueBlob } from '@/assets/blue-blob.svg'
-import { ReactComponent as YellowBlob } from '@/assets/yellow-blob.svg'
+import { useNavigate } from 'react-router-dom'
 
 import * as S from './styles'
 
 export const Home = () => {
+  const navigate = useNavigate()
+
   return (
     <S.HomeWrapper>
-      <S.Container>
-        <YellowBlob />
+      <S.Title>Quizzical</S.Title>
 
-        <BlueBlob />
+      <S.Desc>Test your knowledge with a quiz</S.Desc>
 
-        <S.Title>Quizzical</S.Title>
-
-        <S.Desc>Test your knowledge with a quiz</S.Desc>
-
-        <S.ButtonWrapper>
-          <Button>Start quiz</Button>
-        </S.ButtonWrapper>
-      </S.Container>
+      <S.StartButton
+        size='3x'
+        onClick={() => navigate('quiz')}
+      >
+        Start quiz
+      </S.StartButton>
     </S.HomeWrapper>
   )
 }
