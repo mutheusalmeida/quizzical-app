@@ -4,10 +4,22 @@ type ButtonType = {
   size: '3x' | '2x' | '1x'
 }
 
+export const ButtonDefault = css`
+  cursor: pointer;
+
+  &:active {
+    scale: 0.98;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.9;
+  }
+`
+
 export const Button = styled.button<ButtonType>`
   border: none;
   padding: 0;
-  cursor: pointer;
   width: 100%;
   transition: opacity 0.3s ease;
   display: flex;
@@ -16,7 +28,7 @@ export const Button = styled.button<ButtonType>`
 
   ${({ theme }) => css`
     background-color: ${theme.colors.blue200};
-    color: ${theme.colors.gray};
+    color: ${theme.colors.gray100};
   `}
 
   ${({ theme, size }) => size === '3x' && css`
@@ -46,12 +58,5 @@ export const Button = styled.button<ButtonType>`
     max-width: ${`${104 / theme.fontSize.xxs10}em`};
   `}
 
-  &:active {
-    scale: 0.98;
-  }
-
-  &:hover,
-  &:focus {
-    opacity: 0.9;
-  }
+  ${ButtonDefault}
 `

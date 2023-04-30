@@ -7,6 +7,7 @@ declare module 'styled-components' {
       green: string
       red: string
       gray: string
+      gray100: string
     },
     fontSize: {
       xxs10: number

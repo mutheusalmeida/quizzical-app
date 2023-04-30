@@ -29,7 +29,7 @@ const GlobalStyles = createGlobalStyle`
 
     ${({ theme }) => css`
       color: ${theme.colors.blue};
-      background-color: ${theme.colors.gray};
+      background-color: ${theme.colors.gray100};
     `}
   }
 
