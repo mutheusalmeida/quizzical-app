@@ -1,15 +1,11 @@
 import styled, { css } from 'styled-components'
-import blueBlob from '@/assets/blue-blob.svg'
-import yellowBlob from '@/assets/yellow-blob.svg'
 
 export const HomeWrapper = styled.div`
   display: flex;
   min-height: 100%;
   align-items: center;
   justify-content: center;
-  background-image: url(${blueBlob}), url(${yellowBlob});
-  background-repeat: no-repeat;
-  background-position: -25vw 76vh, 65vw -33vh;
+  overflow: hidden;
 `
 
 export const Container = styled.div`
@@ -17,6 +13,22 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 0.625em;
+  position: relative;
+
+  > svg {
+    position: absolute;
+    max-width: max-content;
+  }
+
+  > svg:nth-child(1) {
+    top: -374px;
+    right: -316px;
+  }
+
+  > svg:nth-child(2) {
+    bottom: -308px;
+    right: 254px;
+  }
 `
 
 export const Title = styled.h1`
