@@ -16,7 +16,7 @@ export const Question = ({ disabled }: QuestionProps) => {
       <S.Options>
         <S.Option
           isSelected={false}
-          isCorrect={selected === ''}
+          isCorrect={selected === 'kjk'}
           disabled={disabled}
           onClick={() => setSelecteed('')}
         >

@@ -1,10 +1,14 @@
 import { Question } from '@/question'
 import { useState } from 'react'
+import { useGetQuestionsQuery } from '@/features/api/api-slice'
 
 import * as S from './styles'
 
 export const Quiz = () => {
-  const [checked, setChecked] = useState(false)
+  const [checked, setChecked] = useState(true)
+  const { data } = useGetQuestionsQuery()
+
+  console.log(data)
 
   return (
     <S.QuizWrapper>

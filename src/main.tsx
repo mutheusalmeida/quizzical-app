@@ -4,6 +4,8 @@ import { App } from '@/app'
 import GlobalStyles from './style/global'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './resources/theme'
+import { Provider } from 'react-redux'
+import store from './store'
 const rootElement = document.querySelector('[data-js="root"]')
 
 if (!rootElement) {
@@ -13,9 +15,11 @@ if (!rootElement) {
 const root = createRoot(rootElement)
 root.render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <App />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <App />
+      </ThemeProvider>
+    </Provider>
   </StrictMode>,
 )
