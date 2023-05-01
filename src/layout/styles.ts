@@ -22,12 +22,14 @@ export const Container = styled.div`
   }
 
   > svg:nth-child(1) {
-    top: -374px;
-    right: -316px;
+    transform: translate(444px, -196px);
+    top: 0;
+    right: 50%;
   }
 
   > svg:nth-child(2) {
-    bottom: -308px;
-    right: 254px;
+    transform: translate(-114px, 104px);
+    bottom: 0;
+    right: 50%;
   }
 `
