@@ -27,6 +27,7 @@ export const Title = styled.h2`
 
 export const Options = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75em;
 `
 
@@ -35,6 +36,7 @@ export const Option = styled.button<OptionType>`
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 
   ${ButtonDefault}
 

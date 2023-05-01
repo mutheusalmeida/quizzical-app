@@ -18,6 +18,7 @@ export const Container = styled.div`
   > svg {
     position: absolute;
     max-width: max-content;
+    z-index: -1;
   }
 
   > svg:nth-child(1) {

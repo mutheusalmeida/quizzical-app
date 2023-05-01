@@ -21,7 +21,7 @@ export const Question = ({
 
   return (
     <S.QuestionWrapper>
-      <S.Title>{question}</S.Title>
+      <S.Title dangerouslySetInnerHTML={{ __html: question }} />
 
       <S.Options>
         {shuffledOptions.map((option, index) => (
@@ -31,9 +31,8 @@ export const Question = ({
             isCorrect={option === correct_answer}
             disabled={disabled}
             onClick={() => setSelecteed(option)}
-          >
-            {option}
-          </S.Option>
+            dangerouslySetInnerHTML={{ __html: option }}
+          />
         ))}
       </S.Options>
     </S.QuestionWrapper>

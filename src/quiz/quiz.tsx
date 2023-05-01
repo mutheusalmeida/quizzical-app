@@ -9,6 +9,8 @@ export const Quiz = () => {
   const { data, isSuccess, isLoading, isError, error, isUninitialized } = useGetQuestionsQuery()
   let content
 
+  console.log(data)
+
   if (isLoading || isUninitialized) {
     content = <>Loading...</>
   } else if (isSuccess) {

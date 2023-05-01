@@ -6,6 +6,9 @@ export const QuizWrapper = styled.div`
   flex-direction: column;
   gap: 1.25em;
   align-items: center;
+  padding: 2.5em 1em 1.5em;
+  width: 80vw;
+  max-width: 34.375em;
 `
 
 export const QuestionsWrapper = styled.div`
