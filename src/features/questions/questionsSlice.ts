@@ -5,7 +5,7 @@ import {
   createEntityAdapter,
   EntityState,
 } from '@reduxjs/toolkit'
-import { Question } from 'questions'
+import { QuestionType } from 'questions'
 
 type initialStateType= {
   status: 'idle' | 'loading' | 'succeeded' | 'failed'
@@ -20,7 +20,7 @@ const initialState = questionsAdapter.getInitialState<initialStateType>({
 })
 
 export const fetchQuestions = createAsyncThunk('questions/fetchQuestions', async () => {
-  const response = await client.get<Question[]>('https://opentdb.com/api.php?amount=5&category=9&difficulty=medium&type=multiple')
+  const response = await client.get<QuestionType[]>('https://opentdb.com/api.php?amount=5&category=9&difficulty=medium&type=multiple')
 
   return response?.data
 })
@@ -55,4 +55,4 @@ export default questionsSlice.reducer
 
 export const {
   selectAll: selectAllQuestions,
-} = questionsAdapter.getSelectors<{ questions: EntityState<Question[]>}>((state) => state.questions)
+} = questionsAdapter.getSelectors<{ questions: EntityState<QuestionType[]>}>((state) => state.questions)

@@ -1,5 +1,5 @@
 declare module 'questions' {
-  export type Question = {
+  export type QuestionType = {
     category: string
     correct_answer: string
     difficulty: string

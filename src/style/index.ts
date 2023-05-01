@@ -5,6 +5,7 @@ type ButtonType = {
 }
 
 export const ButtonDefault = css`
+  background-color: transparent;
   cursor: pointer;
 
   &:active {
@@ -25,6 +26,8 @@ export const Button = styled.button<ButtonType>`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  ${ButtonDefault}
 
   ${({ theme }) => css`
     background-color: ${theme.colors.blue200};
@@ -57,6 +60,4 @@ export const Button = styled.button<ButtonType>`
     height: ${`${30 / theme.fontSize.xxs10}em`};
     max-width: ${`${104 / theme.fontSize.xxs10}em`};
   `}
-
-  ${ButtonDefault}
 `
