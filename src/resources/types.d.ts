@@ -6,5 +6,7 @@ declare module 'questions' {
     incorrect_answers: string[]
     question: string
     type: string
+    id: string
+    selected: string
   }
 }

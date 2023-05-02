@@ -28,7 +28,9 @@ export const fetchQuestions = createAsyncThunk('questions/fetchQuestions', async
 const questionsSlice = createSlice({
   name: 'questions',
   initialState,
-  reducers: {},
+  reducers: {
+    questionUpdated: questionsAdapter.updateOne,
+  },
   extraReducers (builder) {
     builder
       .addCase(fetchQuestions.pending, (state) => {
@@ -50,6 +52,8 @@ const questionsSlice = createSlice({
       })
   },
 })
+
+export const { questionUpdated } = questionsSlice.actions
 
 export default questionsSlice.reducer
 

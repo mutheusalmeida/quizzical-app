@@ -17,4 +17,21 @@ export const QuestionsWrapper = styled.div`
   gap: 1em;
 `
 
+export const ResultWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25em;
+`
+
+export const Result = styled.div`
+  font-weight: 700;
+  font-size: 12.8px;
+  line-height: 15px;
+  color: #293264;
+`
+
+export const PlayAgainButton = styled(Button)``
+
 export const CheckButton = styled(Button)``

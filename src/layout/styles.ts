@@ -6,6 +6,7 @@ export const LayoutWrapper = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 `
 
 export const Container = styled.div`
@@ -13,7 +14,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 0.625em;
-  position: relative;
 
   > svg {
     position: absolute;

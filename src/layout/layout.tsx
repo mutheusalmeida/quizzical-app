@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { ReactComponent as BlueBlob } from '@/assets/blue-blob.svg'
 import { ReactComponent as YellowBlob } from '@/assets/yellow-blob.svg'
 

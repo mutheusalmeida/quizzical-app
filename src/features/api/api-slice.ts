@@ -8,7 +8,7 @@ export const apiSlice = createApi({
     getQuestions: builder.query<QuestionType[], void>({
       query: () => '/api.php?amount=5&category=9&difficulty=medium&type=multiple',
       transformResponse: (rawResult: { results: QuestionType[] }) => {
-        return rawResult.results
+        return rawResult.results.map(item => ({ ...item, id: crypto.randomUUID(), selected: '' }))
       },
     }),
   }),

@@ -1,23 +1,38 @@
 /* eslint-disable camelcase */
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { QuestionType } from 'questions'
+import { apiSlice } from '@/features/api/api-slice'
+import { useAppDispatch } from '@/hooks/use-app-dispatch'
 
 import * as S from './styles'
 
 type QuestionProps = {
   disabled: boolean
-} & Pick<QuestionType, 'correct_answer' | 'question' | 'incorrect_answers'>
+} & Pick<QuestionType, 'correct_answer' | 'question' | 'incorrect_answers' | 'selected' | 'id'>
 
 export const Question = ({
   disabled,
   question,
   correct_answer,
   incorrect_answers,
+  selected,
+  id,
 }: QuestionProps) => {
-  const [selected, setSelecteed] = useState('')
+  const dispatch = useAppDispatch()
+
   const shuffledOptions = useMemo(() => {
     return [correct_answer, ...incorrect_answers].sort(() => Math.random() - 0.5)
   }, [correct_answer, incorrect_answers])
+
+  const updateQuestion = (value: string) => {
+    dispatch(apiSlice.util.updateQueryData('getQuestions', undefined, draft => {
+      const question = draft.find(question => question.id === id)
+
+      if (question) {
+        question.selected = value
+      }
+    }))
+  }
 
   return (
     <S.QuestionWrapper>
@@ -30,7 +45,7 @@ export const Question = ({
             isSelected={selected === option}
             isCorrect={option === correct_answer}
             disabled={disabled}
-            onClick={() => setSelecteed(option)}
+            onClick={() => updateQuestion(option)}
             dangerouslySetInnerHTML={{ __html: option }}
           />
         ))}
