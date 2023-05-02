@@ -6,7 +6,7 @@ import * as S from './styles'
 
 export const Quiz = () => {
   const [checked, setChecked] = useState(false)
-  const { data, isFetching, isSuccess, isLoading, isError, error, isUninitialized, refetch } = useGetQuestionsQuery()
+  const { data, isFetching, isSuccess, isLoading, isError, isUninitialized, refetch } = useGetQuestionsQuery()
   let content
 
   const isAllAnswered = data?.every(question => question.selected)
@@ -65,7 +65,7 @@ export const Quiz = () => {
       </>
     )
   } else if (isError) {
-    content = <>{error.toString()}</>
+    content = <>Something went wrong</>
   }
 
   return (
