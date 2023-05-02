@@ -32,7 +32,7 @@ export async function client<T> (endpoint: string, { body, ...customConfig }: { 
     throw new Error(response.statusText)
   } catch (err: unknown) {
     if (err instanceof Error) {
-      return Promise.reject(err.message ? err.message : data)
+      return Promise.reject(err.message)
     }
   }
 }

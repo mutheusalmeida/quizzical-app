@@ -6,8 +6,10 @@ import * as S from './styles'
 
 export const Quiz = () => {
   const [checked, setChecked] = useState(false)
-  const { data, isFetching, isSuccess, isLoading, isError, isUninitialized, refetch } = useGetQuestionsQuery()
+  const { data, isFetching, isSuccess, isLoading, isError, error, isUninitialized, refetch } = useGetQuestionsQuery()
   let content
+
+  console.log(error)
 
   const isAllAnswered = data?.every(question => question.selected)
   const scored = data?.filter(question => question.selected === question.correct_answer).length
@@ -65,7 +67,19 @@ export const Quiz = () => {
       </>
     )
   } else if (isError) {
-    content = <>Something went wrong</>
+    if ('status' in error) {
+      const errMsg = 'error' in error ? error.error : JSON.stringify(error.data)
+
+      content = (
+        <>
+          <p>An error has accured:</p>
+
+          <p>{errMsg}</p>
+        </>
+      )
+    } else {
+      content = <p>{error.message}</p>
+    }
   }
 
   return (
