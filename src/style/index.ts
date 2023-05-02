@@ -60,4 +60,9 @@ export const Button = styled.button<ButtonType>`
     height: ${`${30 / theme.fontSize.xxs10}em`};
     max-width: ${`${104 / theme.fontSize.xxs10}em`};
   `}
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 `

@@ -6,12 +6,13 @@ import * as S from './styles'
 
 export const Quiz = () => {
   const [checked, setChecked] = useState(false)
-  const { data, isSuccess, isLoading, isError, error, isUninitialized, refetch } = useGetQuestionsQuery()
+  const { data, isFetching, isSuccess, isLoading, isError, error, isUninitialized, refetch } = useGetQuestionsQuery()
   let content
 
-  console.log(data)
+  const isAllAnswered = data?.every(question => question.selected)
+  const scored = data?.filter(question => question.selected === question.correct_answer).length
 
-  if (isLoading || isUninitialized) {
+  if (isFetching || isLoading || isUninitialized) {
     content = <>Loading...</>
   } else if (isSuccess) {
     const renderedQuestions = data.map(question => (
@@ -35,7 +36,7 @@ export const Quiz = () => {
         {checked
           ? (
             <S.ResultWrapper>
-              <S.Result>You scored 3/5 correct answers</S.Result>
+              <S.Result>You scored {scored}/{data.length} correct answers</S.Result>
 
               <S.PlayAgainButton
                 size='1x'
@@ -51,7 +52,12 @@ export const Quiz = () => {
           : (
             <S.CheckButton
               size='2x'
-              onClick={() => setChecked(true)}
+              disabled={!isAllAnswered}
+              onClick={() => {
+                if (isAllAnswered) {
+                  setChecked(true)
+                }
+              }}
             >
               Check answers
             </S.CheckButton>
